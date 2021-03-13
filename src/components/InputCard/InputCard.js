@@ -4,14 +4,14 @@ import ClearIcon from '@material-ui/icons/Clear';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import storeApi from '../../utils/storeApi';
 
-const InputCard = ({ setOpen, listId }) => {
+const InputCard = ({ setOpen, listId, type }) => {
   const classes = useStyle();
-  const [cardTitle, setCardTitle] = useState('');
+  const [title, setTitle] = useState('');
   const [cardDescription, setCardDescription] = useState('');
-  const { addMoreCard } = useContext(storeApi);
+  const { addMoreCard, addMoreList } = useContext(storeApi);
 
   const handleTitleChange = (e) => {
-    setCardTitle(e.target.value);
+    setTitle(e.target.value);
   };
 
   const handleDescChange = (e) => {
@@ -19,15 +19,21 @@ const InputCard = ({ setOpen, listId }) => {
   };
 
   const handleBtnConfirm = () => {
-    addMoreCard(cardTitle, cardDescription, listId);
-    setCardTitle('');
-    setCardDescription('');
-    setOpen(false);
+    if (type === 'list') {
+      addMoreList(title);
+      setTitle('');
+      setOpen(false);
+    } else {
+      addMoreCard(title, cardDescription, listId);
+      setTitle('');
+      setCardDescription('');
+      setOpen(false);
+    }
   };
 
   const handleBlur = () => {
-    if (!cardTitle && !cardDescription) {
-      setCardTitle('');
+    if (!title && !cardDescription) {
+      setTitle('');
       setCardDescription('');
       setOpen(false);
     }
@@ -45,31 +51,38 @@ const InputCard = ({ setOpen, listId }) => {
             inputProps={{
               className: classes.input,
             }}
-            placeholder="Enter a title of this card..."
+            placeholder={
+              type === 'list'
+                ? 'Enter list title...'
+                : 'Enter a title of this card...'
+            }
             height="0%"
-            value={cardTitle}
+            value={title}
           />
         </Paper>
-        <Paper className={classes.descCard}>
-          <InputBase
-            onChange={handleDescChange}
-            autoFocus
-            multiline
-            fullWidth
-            inputProps={{
-              className: classes.input,
-            }}
-            placeholder="Enter some description for this card..."
-          />
-        </Paper>
+        {type === 'list' ? (
+          ''
+        ) : (
+          <Paper className={classes.descCard}>
+            <InputBase
+              onChange={handleDescChange}
+              autoFocus
+              multiline
+              fullWidth
+              inputProps={{
+                className: classes.input,
+              }}
+              placeholder="Enter some description for this card..."
+            />
+          </Paper>
+        )}
       </div>
-
       <div className={classes.confirm}>
         <Button
           className={classes.btnConfirm}
           onClick={() => handleBtnConfirm()}
         >
-          Add Card
+          {type === 'list' ? 'Add a list' : 'Add a Card'}
         </Button>
         <IconButton onClick={() => setOpen(false)}>
           <ClearIcon />
