@@ -10,7 +10,7 @@ Preview the assignment at - https://kanban-x.netlify.app/
 
 ## Features
 
-- Starts with a default empty list. Click on the title of the list to change it & click anywhere else to automatically save it.
+- Comes with a default empty list. Click on the title of the list to rename it & click anywhere else on the screen to automatically save it.
 - Create new lists with 'Add a List' button. If you don't enter a Title, it will be "List" by default.
 - Create new cards in lists using 'Add a Card' button.
 - Each card can have a Title & a description. If you don't enter a title, the add button won't work.
