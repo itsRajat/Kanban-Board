@@ -4,32 +4,6 @@ import DragHandleIcon from '@material-ui/icons/DragHandle';
 import React, { useState, useContext } from 'react';
 import { dataContext } from '../../contexts/dataContext';
 
-const useStyle = makeStyles((theme) => ({
-  editableTitleContainer: {
-    marginLeft: theme.spacing(1),
-    display: 'flex',
-  },
-  editableTitle: {
-    marginLeft: theme.spacing(1),
-    flexGrow: 1,
-    fontSize: '1.2rem',
-    // fontWeight: 'bold',
-    color: 'white',
-  },
-  input: {
-    margin: theme.spacing(1),
-    borderRadius: '10px',
-    padding: theme.spacing(2),
-    '&:focus': {
-      background: 'rgba(51, 51, 51, 0.5)',
-      color: 'white',
-
-      fontSize: '1rem',
-      // fontWeight: 'bold',
-    },
-  },
-}));
-
 const Title = ({ title, listId }) => {
   const [open, setOpen] = useState(false);
   const [newTitle, setNewTitle] = useState(title ? title : 'List');
@@ -72,5 +46,30 @@ const Title = ({ title, listId }) => {
     </div>
   );
 };
+
+const useStyle = makeStyles((theme) => ({
+  editableTitleContainer: {
+    marginLeft: theme.spacing(1),
+    display: 'flex',
+  },
+  editableTitle: {
+    marginLeft: theme.spacing(1),
+    flexGrow: 1,
+    fontSize: '1.2rem',
+    // fontWeight: 'bold',
+    color: 'white',
+  },
+  input: {
+    margin: theme.spacing(1),
+    borderRadius: '10px',
+    padding: theme.spacing(2),
+    '&:focus': {
+      background: 'rgba(51, 51, 51, 0.5)',
+      color: 'white',
+
+      fontSize: '1rem',
+    },
+  },
+}));
 
 export default Title;

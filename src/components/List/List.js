@@ -6,24 +6,6 @@ import Card from '../Card/Card';
 import InputContainer from '../Input/InputContainer';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-const useStyle = makeStyles((theme) => ({
-  root: {
-    margin: '1rem',
-    padding: '20px 20px 10px 20px',
-    position: 'relative',
-    borderRadius: '10px',
-    overflow: 'hidden',
-    WebkitBackdropFilter: 'blur(15px)',
-    border: '1.5px solid rgba(0,0,0,0.1)',
-    background: 'rgba(0,0,0,0.4)',
-    '@media (max-width: 600px)': {
-      width: '50vh',
-    },
-  },
-  cardContainer: {
-    marginTop: 'theme.spacing(1)',
-  },
-}));
 const List = ({ list, index }) => {
   const classes = useStyle();
   return (
@@ -54,5 +36,24 @@ const List = ({ list, index }) => {
     </Draggable>
   );
 };
+
+const useStyle = makeStyles((theme) => ({
+  root: {
+    margin: '1rem',
+    padding: '20px 20px 10px 20px',
+    position: 'relative',
+    borderRadius: '10px',
+    overflow: 'hidden',
+    WebkitBackdropFilter: 'blur(15px)',
+    border: '1.5px solid rgba(0,0,0,0.1)',
+    background: 'rgba(0,0,0,0.4)',
+    '@media (max-width: 600px)': {
+      width: '50vh',
+    },
+  },
+  cardContainer: {
+    marginTop: 'theme.spacing(1)',
+  },
+}));
 
 export default List;

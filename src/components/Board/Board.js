@@ -38,9 +38,7 @@ const Board = () => {
 const useStyle = makeStyles((theme) => ({
   root: {
     minHeight: '90vh',
-    // width: '100%',
     backgroundSize: 'cover',
-    // backgroundImage: `url(${background})`,
     '&:before': {
       backgroundImage: 'linear-gradient(to bottom right,#002f4b,#dc4225)',
       opacity: '0.6',
