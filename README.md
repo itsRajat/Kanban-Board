@@ -1,8 +1,12 @@
-# KanBan Board
+# Kanban Board
 
 Kanban Board is a tool where you have lists in front of you consisting of cards. Each list has a title, and a button to add more cards. The cards can be moved from one list to another via a drag and drop mechanism. Similar to the popular application Trello.
 
 Created using React, Material UI, Context API, localStorage, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
+
+# Live Preview
+
+Preview the assignment at - https://kanban-x.netlify.app/
 
 ## Features
 
