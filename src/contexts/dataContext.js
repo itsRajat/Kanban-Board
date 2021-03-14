@@ -59,9 +59,21 @@ const DataContextProvider = (props) => {
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result;
-    console.log(destination, source, draggableId);
 
     if (!destination) {
+      const sourceList = data.lists[source.droppableId];
+      const newCards = sourceList.cards.filter(
+        (card) => card.id !== draggableId
+      );
+      sourceList.cards = newCards;
+      const newState = {
+        ...data,
+        lists: {
+          ...data.lists,
+          [sourceList.id]: sourceList,
+        },
+      };
+      setData(newState);
       return;
     }
 

@@ -3,6 +3,27 @@ import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Draggable } from 'react-beautiful-dnd';
 
+const Card = ({ card, index }) => {
+  const classes = useStyle();
+
+  return (
+    <Draggable draggableId={card.id} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+        >
+          <Paper className={classes.cardContainer}>
+            <div className={classes.cardTitle}>{card.title.toUpperCase()}</div>
+            <div className={classes.cardDesc}>{card.desc}</div>
+          </Paper>
+        </div>
+      )}
+    </Draggable>
+  );
+};
+
 const useStyle = makeStyles((theme) => ({
   cardContainer: {
     padding: theme.spacing(1, 2, 1, 2),
@@ -20,34 +41,13 @@ const useStyle = makeStyles((theme) => ({
   },
   cardTitle: {
     fontWeight: '1000',
-    fontSize: 20,
+    fontSize: 14,
   },
   cardDesc: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '600',
     color: '#7a7a7a',
   },
 }));
-
-const Card = ({ card, index }) => {
-  const classes = useStyle();
-
-  return (
-    <Draggable draggableId={card.id} index={index}>
-      {(provided) => (
-        <div
-          ref={provided.innerRef}
-          {...provided.dragHandleProps}
-          {...provided.draggableProps}
-        >
-          <Paper className={classes.cardContainer}>
-            <div className={classes.cardTitle}>{card.title}</div>
-            <div className={classes.cardDesc}>{card.desc}</div>
-          </Paper>
-        </div>
-      )}
-    </Draggable>
-  );
-};
 
 export default Card;

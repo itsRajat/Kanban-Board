@@ -100,16 +100,16 @@ const useStyle = makeStyles((theme) => ({
   titleCard: {
     margin: theme.spacing(0, 1, 1, 1),
     paddingBottom: theme.spacing(4),
-    height: '2.8rem',
+    height: '50px',
+    overflow: 'scroll',
   },
   descCard: {
     margin: theme.spacing(0, 1, 1, 1),
     paddingBottom: theme.spacing(4),
-    height: '5rem',
   },
   input: {
     margin: theme.spacing(1),
-    color: '#1a1919',
+    fontSize: '14px',
   },
   btnConfirm: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -135,7 +135,7 @@ const useStyle = makeStyles((theme) => ({
     height: '30px',
     width: '30px',
     '&:hover': {
-      transform: 'scale(1.4)',
+      transform: 'scale(1.2)',
     },
   },
 }));

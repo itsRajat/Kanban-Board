@@ -1,7 +1,4 @@
 const cards = [];
-// import { nanoid } from 'nanoid';
-
-// const firstListId = nanoid();
 
 const data = {
   lists: {

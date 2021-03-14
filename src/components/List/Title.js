@@ -1,6 +1,6 @@
 import { Typography, InputBase } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import DragHandleIcon from '@material-ui/icons/DragHandle';
 import React, { useState, useContext } from 'react';
 import { dataContext } from '../../contexts/dataContext';
 
@@ -66,7 +66,7 @@ const Title = ({ title, listId }) => {
           >
             {title ? title : 'List'}
           </Typography>
-          <MoreHorizIcon style={{ color: 'white' }} />
+          <DragHandleIcon style={{ color: 'white' }} />
         </div>
       )}
     </div>

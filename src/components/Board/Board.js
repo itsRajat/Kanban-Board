@@ -3,7 +3,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { dataContext } from '../../contexts/dataContext';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '../List/List';
-import InputContainer from '../InputCard/InputContainer';
+import InputContainer from '../Input/InputContainer';
 
 const Board = () => {
   const { data, onDragEnd } = useContext(dataContext);

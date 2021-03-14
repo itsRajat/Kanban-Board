@@ -3,7 +3,7 @@ import { CssBaseline, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
 import Card from '../Card/Card';
-import InputContainer from '../InputCard/InputContainer';
+import InputContainer from '../Input/InputContainer';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 const useStyle = makeStyles((theme) => ({
@@ -13,7 +13,7 @@ const useStyle = makeStyles((theme) => ({
     position: 'relative',
     borderRadius: '10px',
     overflow: 'hidden',
-    WebkitBackdropFilter: 'blur(5px)',
+    WebkitBackdropFilter: 'blur(15px)',
     border: '1.5px solid rgba(0,0,0,0.1)',
     background: 'rgba(0,0,0,0.4)',
     '@media (max-width: 600px)': {

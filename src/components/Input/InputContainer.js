@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Collapse, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import InputCard from './InputCard';
+import InputCard from './Input';
 import { dataContext } from '../../contexts/dataContext';
 
 const InputContainer = ({ listId, type }) => {
