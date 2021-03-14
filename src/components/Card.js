@@ -1,6 +1,7 @@
 import React from 'react';
-import { Paper, Typography } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Draggable } from 'react-beautiful-dnd';
 
 const useStyle = makeStyles((theme) => ({
   cardContainer: {
@@ -16,25 +17,31 @@ const useStyle = makeStyles((theme) => ({
     WebkitBackdropFilter: 'blur(10px)',
   },
   cardTitle: {
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   cardDesc: {
-    // padding: theme.spacing(1, 1, 1, 2),
-    // margin: theme.spacing(1),
     fontSize: 13,
   },
 }));
 
-const Card = ({ card }) => {
+const Card = ({ card, index }) => {
   const classes = useStyle();
 
   return (
-    <div>
-      <Paper className={classes.cardContainer}>
-        <Typography className={classes.cardTitle}>{card.title}</Typography>
-        <Typography className={classes.cardDesc}>{card.desc}</Typography>
-      </Paper>
-    </div>
+    <Draggable draggableId={card.id} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+        >
+          <Paper className={classes.cardContainer}>
+            <div className={classes.cardTitle}>{card.title}</div>
+            <div className={classes.cardDesc}>{card.desc}</div>
+          </Paper>
+        </div>
+      )}
+    </Draggable>
   );
 };
 

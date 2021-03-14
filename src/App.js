@@ -8,6 +8,7 @@ import InputContainer from './components/InputCard/InputContainer';
 import { makeStyles } from '@material-ui/core/styles';
 import background from './bg.svg';
 import Header from './components/Header';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 function App() {
   const [data, setData] = useState(
@@ -73,18 +74,44 @@ function App() {
     localStorage.setItem('kanban-data', JSON.stringify(data));
   }, [data]);
 
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+    console.log(destination, source, draggableId);
+    if (!destination) {
+      return;
+    }
+    const sourceList = data.lists[source.droppableId];
+    const destinationList = data.lists[destination.droppableId];
+    const draggingCard = sourceList.cards.filter(
+      (card) => card.id === draggableId
+    )[0];
+    if (source.droppableId === destination.droppableId) {
+      sourceList.cards.splice(source.index, 1);
+      destinationList.cards.splice(destination.index, 0, draggingCard);
+      const newState = {
+        ...data,
+        lists: {
+          ...data.lists,
+          [sourceList.id]: destinationList,
+        },
+      };
+      setData(newState);
+    }
+  };
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
       <Header />
-      <div className={classes.root}>
-        <div className={classes.lists}>
-          {data.listIds.map((listId) => {
-            const list = data.lists[listId];
-            return <List list={list} key={listId} />;
-          })}
-          <InputContainer type="list" />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className={classes.root}>
+          <div className={classes.lists}>
+            {data.listIds.map((listId) => {
+              const list = data.lists[listId];
+              return <List list={list} key={listId} />;
+            })}
+            <InputContainer type="list" />
+          </div>
         </div>
-      </div>
+      </DragDropContext>
     </StoreApi.Provider>
   );
 }
