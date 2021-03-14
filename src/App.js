@@ -11,9 +11,8 @@ import Header from './components/Header';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 function App() {
-  const [data, setData] = useState(
-    JSON.parse(localStorage.getItem('kanban-data')) ?? store
-  );
+  const [data, setData] = useState(store);
+  // JSON.parse(localStorage.getItem('kanban-data')) ??
   const classes = useStyle();
 
   const addMoreList = (title) => {
@@ -71,7 +70,7 @@ function App() {
   };
 
   React.useEffect(() => {
-    localStorage.setItem('kanban-data', JSON.stringify(data));
+    // localStorage.setItem('kanban-data', JSON.stringify(data));
   }, [data]);
 
   const onDragEnd = (result) => {
@@ -93,6 +92,19 @@ function App() {
         lists: {
           ...data.lists,
           [sourceList.id]: destinationList,
+        },
+      };
+      setData(newState);
+    } else {
+      sourceList.cards.splice(source.index, 1);
+      destinationList.cards.splice(destination.index, 0, draggingCard);
+
+      const newState = {
+        ...data,
+        lists: {
+          ...data.lists,
+          [sourceList.id]: sourceList,
+          [destinationList.id]: destinationList,
         },
       };
       setData(newState);

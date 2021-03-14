@@ -9,7 +9,7 @@ import { Droppable } from 'react-beautiful-dnd';
 const useStyle = makeStyles((theme) => ({
   root: {
     margin: '1rem',
-    padding: '20px 20px 30px 20px',
+    padding: '20px 20px 10px 20px',
     position: 'relative',
     margin: '20px',
     border: '2px solid rgba(255,255,255,0.2)',
