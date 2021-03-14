@@ -4,7 +4,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import { makeStyles } from '@material-ui/core/styles';
 import { dataContext } from '../../contexts/dataContext';
 
-const InputCard = ({ setOpen, listId, type }) => {
+const Input = ({ setOpen, listId, type }) => {
   const classes = useStyle();
   const [title, setTitle] = useState('');
   const [cardDescription, setCardDescription] = useState('');
@@ -100,7 +100,7 @@ const useStyle = makeStyles((theme) => ({
   titleCard: {
     margin: theme.spacing(0, 1, 1, 1),
     paddingBottom: theme.spacing(4),
-    height: '50px',
+    height: '60px',
     overflow: 'scroll',
   },
   descCard: {
@@ -117,7 +117,8 @@ const useStyle = makeStyles((theme) => ({
     border: 0,
     fontSize: '1.7vh',
     color: 'white',
-    height: 48,
+    minHeight: 48,
+    width: '100px',
     padding: '0 30px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     '&:hover': {
@@ -131,6 +132,7 @@ const useStyle = makeStyles((theme) => ({
   },
   cancel: {
     marginLeft: '20px',
+    padding: '20px 20px',
     color: 'white',
     height: '30px',
     width: '30px',
@@ -140,4 +142,4 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export default InputCard;
+export default Input;
