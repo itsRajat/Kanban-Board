@@ -23,6 +23,19 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - State of the board is persisted through LocalStorage.
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
 
+## Project Architecture 
+
+src -> contains all the relevant files.
+--component -> has all the components (which are further divided into folders, on the basis of functionality)
+----- board -> contains all the lists.
+----- list -> singular list.
+----- card -> singular card.
+----- input -> contains the toggle input menu & add buttons.
+----- Footer/Header -> self-explanatory.
+--contexts -> has the dataContext & Provider implementation w/ important functions.
+--hooks -> has the custom useLocalStorage Hook
+--static -> has all the static files like logo, background SVG & the default initial data structure.
+
 ## Setup & Run
 
 - npm install
