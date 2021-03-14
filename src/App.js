@@ -8,7 +8,9 @@ import InputContainer from './components/InputCard/InputContainer';
 import { makeStyles } from '@material-ui/core/styles';
 
 function App() {
-  const [data, setData] = useState(store);
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem('kanban-data')) ?? store
+  );
   const classes = useStyle();
 
   const addMoreList = (title) => {
@@ -64,6 +66,11 @@ function App() {
     };
     setData(newState);
   };
+
+  React.useEffect(() => {
+    localStorage.setItem('kanban-data', JSON.stringify(data));
+  }, [data]);
+
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
       <div className={classes.root}>
