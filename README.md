@@ -2,7 +2,7 @@
 
 Kanban Board is a tool where you have lists in front of you consisting of cards. Each list has a title, and a button to add more cards. The cards can be moved from one list to another via a drag and drop mechanism. Similar to the popular application Trello.
 
-Created using React, Material UI, Context API, localStorage, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
+Created using React, Material UI, Context API, localStorage, nanoid, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
 
 # Live Preview
 
@@ -10,14 +10,16 @@ Preview the assignment at - https://kanban-x.netlify.app/
 
 ## Features
 
-- Create new lists items with 'Add a List' button.
+- Starts with a default empty list. Click on the title of the list to change it & click anywhere else to automatically save it.
+- Create new lists with 'Add a List' button. If you don't enter a Title, it will be "List" by default.
 - Create new cards in lists using 'Add a Card' button.
-- Each card can have a Title & a description.
+- Each card can have a Title & a description. If you don't enter a title, the add button won't work.
+- Each card & list item has a unique ID generated using nanoid, which is much faster than uuid.
 - The overflow of the screen will increase as you create more cards & lists, so there's no "upperlimit".
 - Drag-N-Drop cards anywhere: inside a single list or between different lists.
 - Drag-N-Drop lists to re-order them horizontally.
+- To collapse the "Add card/list" menu, just click anywhere else on the screen. (onBlur)
 - To remove a card from a list, simply drop it on an empty part of the screen & it will be removed.
-- Click on the title of a list to change it. Just type it & click anywhere else on the screen, it will be saved.
 - State of the board is persisted through LocalStorage.
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
 
