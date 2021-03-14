@@ -25,8 +25,8 @@ const InputCard = ({ setOpen, listId, type }) => {
       setOpen(false);
     } else {
       addMoreCard(title, cardDescription, listId);
-      setTitle('');
       setCardDescription('');
+      setTitle('');
       setOpen(false);
     }
   };
@@ -56,7 +56,6 @@ const InputCard = ({ setOpen, listId, type }) => {
                 ? 'Enter list title...'
                 : 'Enter a title of this card...'
             }
-            height="0%"
             value={title}
           />
         </Paper>
@@ -73,6 +72,7 @@ const InputCard = ({ setOpen, listId, type }) => {
                 className: classes.input,
               }}
               placeholder="Enter some description for this card..."
+              value={cardDescription}
             />
           </Paper>
         )}
@@ -107,10 +107,17 @@ const useStyle = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   btnConfirm: {
-    background: '#5AAC44',
-    color: '#fff',
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     '&:hover': {
-      background: fade('#5AAC44', 0.75),
+      transition: '500ms ease-in-out',
+      transform: 'scale(1.05)',
+      background: 'linear-gradient(45deg, #d34866 30%, #FF8E53 90%)',
     },
   },
   confirm: {

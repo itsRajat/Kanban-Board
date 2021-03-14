@@ -1,11 +1,13 @@
 import './App.css';
 import List from './components/List/List';
-import { v4 as uuid } from 'uuid';
+import { nanoid } from 'nanoid';
 import React, { useState } from 'react';
 import StoreApi from './utils/storeApi';
 import store from './utils/store';
 import InputContainer from './components/InputCard/InputContainer';
 import { makeStyles } from '@material-ui/core/styles';
+import background from './bg.svg';
+import Header from './components/Header';
 
 function App() {
   const [data, setData] = useState(
@@ -14,7 +16,7 @@ function App() {
   const classes = useStyle();
 
   const addMoreList = (title) => {
-    const newListId = uuid();
+    const newListId = nanoid();
     const newList = {
       id: newListId,
       title,
@@ -31,7 +33,7 @@ function App() {
     setData(newState);
   };
   const addMoreCard = (title, description, listId) => {
-    const newCardId = uuid();
+    const newCardId = nanoid();
     const newCard = {
       id: newCardId,
       title,
@@ -73,6 +75,7 @@ function App() {
 
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
+      <Header />
       <div className={classes.root}>
         <div className={classes.lists}>
           {data.listIds.map((listId) => {
@@ -89,7 +92,13 @@ function App() {
 const useStyle = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    background: 'green',
+    width: '100%',
+    backgroundSize: 'cover',
+    backgroundImage: `url(${background})`,
+    '&:before': {
+      backgroundImage: 'linear-gradient(to bottom right,#002f4b,#dc4225)',
+      opacity: '0.6',
+    },
   },
   lists: {
     display: 'flex',

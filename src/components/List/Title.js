@@ -13,21 +13,26 @@ const useStyle = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     flexGrow: 1,
     fontSize: '1.2rem',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    color: 'white',
   },
   input: {
     margin: theme.spacing(1),
+    borderRadius: '10px',
+    padding: theme.spacing(2),
     '&:focus': {
-      background: '#ddd',
-      fontSize: '1.2rem',
-      fontWeight: 'bold',
+      background: 'rgba(51, 51, 51, 0.5)',
+      color: 'white',
+
+      fontSize: '1rem',
+      // fontWeight: 'bold',
     },
   },
 }));
 
 const Title = ({ title, listId }) => {
   const [open, setOpen] = useState(false);
-  const [newTitle, setNewTitle] = useState(title);
+  const [newTitle, setNewTitle] = useState(title ? title : 'List');
   const { updateListTitle } = useContext(storeApi);
   const classes = useStyle();
 
@@ -59,9 +64,9 @@ const Title = ({ title, listId }) => {
             onClick={() => setOpen(!open)}
             className={classes.editableTitle}
           >
-            {title}
+            {title ? title : 'List'}
           </Typography>
-          <MoreHorizIcon />
+          <MoreHorizIcon style={{ color: 'white' }} />
         </div>
       )}
     </div>

@@ -6,6 +6,14 @@ const useStyle = makeStyles((theme) => ({
   cardContainer: {
     padding: theme.spacing(1, 1, 1, 2),
     margin: theme.spacing(1),
+    border: '2px solid rgba(255,255,255,0.3)',
+    background: 'rgba(255,255,255,0.8)',
+    position: 'relative',
+    // borderRadius: '10px',
+    zIndex: 2,
+    overflow: 'hidden',
+    backdropFilter: 'blur(1px)',
+    WebkitBackdropFilter: 'blur(10px)',
   },
   cardTitle: {
     fontWeight: 'bold',
