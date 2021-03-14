@@ -5,22 +5,27 @@ import { Draggable } from 'react-beautiful-dnd';
 
 const useStyle = makeStyles((theme) => ({
   cardContainer: {
-    padding: theme.spacing(1, 1, 1, 2),
-    margin: theme.spacing(1),
+    padding: theme.spacing(1, 2, 1, 2),
+    margin: theme.spacing(1.5, 1),
     border: '2px solid rgba(255,255,255,0.3)',
-    background: 'rgba(255,255,255,0.8)',
+    background: 'rgba(255,255,255,1)',
     position: 'relative',
-    // borderRadius: '10px',
-    zIndex: 2,
+    zIndex: 100,
     overflow: 'hidden',
     backdropFilter: 'blur(1px)',
     WebkitBackdropFilter: 'blur(10px)',
+    '&:active': {
+      transform: 'rotate(8deg)',
+    },
   },
   cardTitle: {
-    fontWeight: '600',
+    fontWeight: '1000',
+    fontSize: 20,
   },
   cardDesc: {
-    fontSize: 13,
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#7a7a7a',
   },
 }));
 

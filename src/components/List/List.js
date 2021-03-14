@@ -2,7 +2,7 @@ import React from 'react';
 import { CssBaseline, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
-import Card from '../Card';
+import Card from '../Card/Card';
 import InputContainer from '../InputCard/InputContainer';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -11,14 +11,14 @@ const useStyle = makeStyles((theme) => ({
     margin: '1rem',
     padding: '20px 20px 10px 20px',
     position: 'relative',
-    margin: '20px',
-    border: '2px solid rgba(255,255,255,0.2)',
     borderRadius: '10px',
-    zIndex: 2,
     overflow: 'hidden',
     WebkitBackdropFilter: 'blur(5px)',
-    border: '2px solid rgba(0,0,0,0.1)',
+    border: '1.5px solid rgba(0,0,0,0.1)',
     background: 'rgba(0,0,0,0.4)',
+    '@media (max-width: 600px)': {
+      width: '50vh',
+    },
   },
   cardContainer: {
     marginTop: 'theme.spacing(1)',

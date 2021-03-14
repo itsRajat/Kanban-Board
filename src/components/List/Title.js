@@ -2,7 +2,7 @@ import { Typography, InputBase } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import React, { useState, useContext } from 'react';
-import storeApi from '../../utils/storeApi';
+import { dataContext } from '../../contexts/dataContext';
 
 const useStyle = makeStyles((theme) => ({
   editableTitleContainer: {
@@ -33,7 +33,7 @@ const useStyle = makeStyles((theme) => ({
 const Title = ({ title, listId }) => {
   const [open, setOpen] = useState(false);
   const [newTitle, setNewTitle] = useState(title ? title : 'List');
-  const { updateListTitle } = useContext(storeApi);
+  const { updateListTitle } = useContext(dataContext);
   const classes = useStyle();
 
   const handleChange = (e) => {

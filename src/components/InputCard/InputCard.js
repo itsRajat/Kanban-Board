@@ -1,14 +1,14 @@
 import { Button, InputBase, Paper, IconButton } from '@material-ui/core';
 import React, { useState, useContext } from 'react';
 import ClearIcon from '@material-ui/icons/Clear';
-import { makeStyles, fade } from '@material-ui/core/styles';
-import storeApi from '../../utils/storeApi';
+import { makeStyles } from '@material-ui/core/styles';
+import { dataContext } from '../../contexts/dataContext';
 
 const InputCard = ({ setOpen, listId, type }) => {
   const classes = useStyle();
   const [title, setTitle] = useState('');
   const [cardDescription, setCardDescription] = useState('');
-  const { addMoreCard, addMoreList } = useContext(storeApi);
+  const { AddToCards, AddToLists } = useContext(dataContext);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -19,12 +19,16 @@ const InputCard = ({ setOpen, listId, type }) => {
   };
 
   const handleBtnConfirm = () => {
+    if (type !== 'list' && title === '') {
+      console.log('Error: You must enter a "Title" to add a card to the list.');
+      return;
+    }
     if (type === 'list') {
-      addMoreList(title);
+      AddToLists(title);
       setTitle('');
       setOpen(false);
     } else {
-      addMoreCard(title, cardDescription, listId);
+      AddToCards(title, cardDescription, listId);
       setCardDescription('');
       setTitle('');
       setOpen(false);
@@ -84,7 +88,7 @@ const InputCard = ({ setOpen, listId, type }) => {
         >
           {type === 'list' ? 'Add a list' : 'Add a Card'}
         </Button>
-        <IconButton onClick={() => setOpen(false)}>
+        <IconButton onClick={() => setOpen(false)} className={classes.cancel}>
           <ClearIcon />
         </IconButton>
       </div>
@@ -105,11 +109,13 @@ const useStyle = makeStyles((theme) => ({
   },
   input: {
     margin: theme.spacing(1),
+    color: '#1a1919',
   },
   btnConfirm: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     borderRadius: 3,
     border: 0,
+    fontSize: '1.7vh',
     color: 'white',
     height: 48,
     padding: '0 30px',
@@ -121,7 +127,16 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   confirm: {
-    margin: theme.spacing(0, 1, 1, 1),
+    margin: theme.spacing(2, 1, 1, 1),
+  },
+  cancel: {
+    marginLeft: '20px',
+    color: 'white',
+    height: '30px',
+    width: '30px',
+    '&:hover': {
+      transform: 'scale(1.4)',
+    },
   },
 }));
 
