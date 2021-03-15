@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-//Created a seperate file for styles here to just show that this is how I would normally do it. Have components & styles in seperate files.
+//Created a seperate file for styles here to just show that this is how I would normally do it. Have components & styles of a function in the same folder, but seperate files.
 
 const useStyle = makeStyles((theme) => ({
   footer: {
@@ -11,10 +11,13 @@ const useStyle = makeStyles((theme) => ({
     paddingBottom: '10px',
     fontWeight: '400',
     textShadow: '2px 2px 8px #d4d4d4',
+    '@media (max-width: 600px)': {
+      fontSize: '10px',
+      letterSpacing: '2px',
+      textAlign: 'center',
+    },
   },
   container: {
-    // textAlign: 'center',
-    // width: '100vw',
     display: 'flex',
     justifyContent: 'center',
   },

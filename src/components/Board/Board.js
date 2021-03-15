@@ -33,7 +33,6 @@ const Board = () => {
           )}
         </Droppable>
       </DragDropContext>
-      {/* <img src={bg} className={classes.img} /> */}
     </div>
   );
 };
@@ -56,7 +55,6 @@ const useStyle = makeStyles((theme) => ({
       alignItems: 'center',
       justifyContent: 'center',
       padding: '0 50%',
-      // overflowY: 'auto',
     },
   },
 }));
