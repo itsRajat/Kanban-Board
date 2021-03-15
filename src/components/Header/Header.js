@@ -6,9 +6,7 @@ const Header = () => {
   return (
     <>
       <div className="container">
-        <div className="overlay">
-          <div id="waveTwo" className="waveBox"></div>
-        </div>
+        <div id="waveTwo" className="waveBox"></div>
         <img src={Logo} alt="logo" className="logo" />
         <h1 className="text">KANBAN</h1>
       </div>

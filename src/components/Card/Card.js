@@ -31,7 +31,7 @@ const useStyle = makeStyles((theme) => ({
     border: '2px solid rgba(255,255,255,0.3)',
     background: 'rgba(255,255,255,1)',
     position: 'relative',
-    zIndex: 100,
+    zIndex: 10,
     overflow: 'hidden',
     backdropFilter: 'blur(1px)',
     WebkitBackdropFilter: 'blur(10px)',

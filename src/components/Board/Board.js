@@ -19,27 +19,29 @@ const Board = () => {
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
-              <div className={classes.lists}>
-                {data.listIds.map((listId, index) => {
-                  const list = data.lists[listId];
-                  return <List list={list} key={listId} index={index} />;
-                })}
-                <InputContainer type="list" />
+              <div className="listContainer">
+                <div className={classes.lists}>
+                  {data.listIds.map((listId, index) => {
+                    const list = data.lists[listId];
+                    return <List list={list} key={listId} index={index} />;
+                  })}
+                  <InputContainer type="list" />
+                </div>
                 {provided.placeholder}
               </div>
             </div>
           )}
         </Droppable>
       </DragDropContext>
+      {/* <img src={bg} className={classes.img} /> */}
     </div>
   );
 };
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    overflowX: 'auto',
-    minHeight: '90vh',
-    backgroundSize: 'cover',
+    display: 'inline-block',
+    minHeight: '95vh',
     '&:before': {
       backgroundImage: 'linear-gradient(to bottom right,#002f4b,#dc4225)',
       opacity: '0.6',
@@ -47,11 +49,14 @@ const useStyle = makeStyles((theme) => ({
   },
   lists: {
     display: 'flex',
+    width: '100%',
+    marginTop: '50px',
     '@media (max-width: 500px)': {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       padding: '0 50%',
+      // overflowY: 'auto',
     },
   },
 }));
