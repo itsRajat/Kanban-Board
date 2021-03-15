@@ -43,6 +43,12 @@ const Input = ({ setOpen, listId, type, open }) => {
     }
   };
 
+  const handleBtnClear = () => {
+    setOpen(false);
+    setTitle('');
+    setCardDescription('');
+  };
+
   const handleBlur = (e) => {
     if (!title && !cardDescription) {
       const currentTarget = e.currentTarget;
@@ -102,7 +108,7 @@ const Input = ({ setOpen, listId, type, open }) => {
         >
           {type === 'list' ? 'Add List' : 'Add Card'}
         </Button>
-        <IconButton onClick={() => setOpen(false)} className={classes.cancel}>
+        <IconButton onClick={handleBtnClear} className={classes.cancel}>
           <ClearIcon />
         </IconButton>
       </div>
