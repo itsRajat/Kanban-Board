@@ -24,6 +24,7 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
 - Has a nice looking UI with a moving wave animation behind the header logo (look carefully xD)
 - You can use the Keyboard to drag b/w lists & drag cards among a single list. Press Tab to select an item, space to initialize Dnd & arrow keys to move. Press space again to save. This is a part of React DnD Library.
+- The size is also completely mobile-friendly.
 
 Most of the "major" features were built with their own commits so feel free to check that out if needed.
 
