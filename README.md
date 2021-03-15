@@ -18,7 +18,7 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - The overflow of the screen will increase as you create more cards & lists, so there's no "upperlimit".
 - Drag-N-Drop cards anywhere: inside a single list or between different lists.
 - Drag-N-Drop lists to re-order them horizontally.
-- To collapse the "Add card/list" menu, just click anywhere else on the screen. (onBlur)
+- To collapse the "Add card/list" menu, just click anywhere else on the screen. The menu will not collapse if you already have something written inside the text blocks to prevent loss of work.
 - To remove a card from a list, simply drop it on an empty part of the screen & it will be removed.
 - State of the board is persisted through LocalStorage.
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
