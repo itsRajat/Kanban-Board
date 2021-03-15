@@ -18,11 +18,12 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - The overflow of the screen will increase as you create more cards & lists, so there's no "upperlimit".
 - Drag-N-Drop cards anywhere: inside a single list or between different lists.
 - Drag-N-Drop lists to re-order them horizontally.
-- To collapse the "Add card/list" menu, just click anywhere else on the screen. The menu will not collapse if you already have something written inside the text blocks to prevent loss of work.
+- To collapse the "Add card/list" menu, just click anywhere else on the screen. The menu will not collapse if you already have something written inside the text blocks to prevent loss of work. (Unless the user specifically clicks on the "X" button)
 - To remove a card from a list, simply drop it on an empty part of the screen & it will be removed.
 - State of the board is persisted through LocalStorage.
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
 - Has a nice looking UI with a moving wave animation behind the header logo (look carefully xD)
+- You can use the Keyboard to drag b/w lists & drag cards among a single list. Press Tab to select an item, space to initialize Dnd & arrow keys to move. Press space again to save. This is a part of React DnD Library.
 
 Most of the "major" features were built with their own commits so feel free to check that out if needed.
 
