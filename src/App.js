@@ -8,9 +8,11 @@ import './App.css';
 function App() {
   return (
     <DataContextProvider>
-      <Header />
-      <Board />
-      <Footer />
+      <div className="background">
+        <Header />
+        <Board />
+        <Footer />
+      </div>
     </DataContextProvider>
   );
 }

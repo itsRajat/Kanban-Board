@@ -37,6 +37,7 @@ const Board = () => {
 
 const useStyle = makeStyles((theme) => ({
   root: {
+    overflowX: 'auto',
     minHeight: '90vh',
     backgroundSize: 'cover',
     '&:before': {

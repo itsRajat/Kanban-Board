@@ -7,7 +7,7 @@ const Card = ({ card, index }) => {
   const classes = useStyle();
 
   return (
-    <Draggable draggableId={card.id} index={index}>
+    <Draggable draggableId={card.id} index={index} key={card.id}>
       {(provided) => (
         <div
           ref={provided.innerRef}

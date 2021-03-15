@@ -9,7 +9,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 const List = ({ list, index }) => {
   const classes = useStyle();
   return (
-    <Draggable draggableId={list.id} index={index}>
+    <Draggable draggableId={list.id} index={index} key={list.id}>
       {(provided) => (
         <div {...provided.draggableProps} ref={provided.innerRef}>
           <Paper className={classes.root} {...provided.dragHandleProps}>

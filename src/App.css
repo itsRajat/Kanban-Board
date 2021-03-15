@@ -7,7 +7,7 @@ body {
   background-color: black;
   z-index: 100;
   background-image: url('./static/bg.svg');
-  background-size: cover;
+  background-size: cover !important;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
@@ -16,9 +16,9 @@ body {
   display: flex;
   flex-direction: column;
   text-align: bottom;
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  overflow-x: none;
+  /* scrollbar-width: none;
+  -ms-overflow-style: none;  */
 }
 
 ::-webkit-scrollbar {
