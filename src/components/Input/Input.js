@@ -1,14 +1,22 @@
 import { Button, InputBase, Paper, IconButton } from '@material-ui/core';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import ClearIcon from '@material-ui/icons/Clear';
 import { makeStyles } from '@material-ui/core/styles';
 import { dataContext } from '../../contexts/dataContext';
 
-const Input = ({ setOpen, listId, type }) => {
+const Input = ({ setOpen, listId, type, open }) => {
   const classes = useStyle();
   const [title, setTitle] = useState('');
   const [cardDescription, setCardDescription] = useState('');
   const { AddToCards, AddToLists } = useContext(dataContext);
+  const inputFocus = useRef();
+
+  useEffect(() => {
+    if (open && !cardDescription) {
+      console.log(open);
+      inputFocus.current.focus();
+    }
+  });
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -35,21 +43,15 @@ const Input = ({ setOpen, listId, type }) => {
     }
   };
 
-  const handleBlur = () => {
-    if (!title && !cardDescription) {
-      setTitle('');
-      setCardDescription('');
-      setOpen(false);
-    }
-  };
+  const handleBlur = (e) => {};
 
   return (
     <div onBlur={handleBlur}>
       <div className="inputContainer">
         <Paper className={classes.titleCard}>
           <InputBase
+            inputRef={inputFocus}
             onChange={handleTitleChange}
-            autoFocus
             multiline
             fullWidth
             inputProps={{
@@ -58,7 +60,7 @@ const Input = ({ setOpen, listId, type }) => {
             placeholder={
               type === 'list'
                 ? 'Enter list title...'
-                : 'Enter a title of this card...'
+                : 'Enter a title for this card...'
             }
             value={title}
           />
@@ -69,13 +71,12 @@ const Input = ({ setOpen, listId, type }) => {
           <Paper className={classes.descCard}>
             <InputBase
               onChange={handleDescChange}
-              autoFocus
               multiline
               fullWidth
               inputProps={{
                 className: classes.input,
               }}
-              placeholder="Enter some description for this card..."
+              placeholder="Enter a description for this card..."
               value={cardDescription}
             />
           </Paper>
@@ -99,13 +100,12 @@ const Input = ({ setOpen, listId, type }) => {
 const useStyle = makeStyles((theme) => ({
   titleCard: {
     margin: theme.spacing(0, 1, 1, 1),
-    paddingBottom: theme.spacing(4),
-    height: '60px',
+    paddingBottom: theme.spacing(0),
     overflow: 'scroll',
   },
   descCard: {
     margin: theme.spacing(0, 1, 1, 1),
-    paddingBottom: theme.spacing(4),
+    paddingBottom: theme.spacing(1),
   },
   inputContainer: {
     margin: theme.spacing(10),

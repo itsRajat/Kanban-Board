@@ -22,7 +22,7 @@ const InputContainer = ({ listId, type }) => {
   return (
     <div className={classes.root}>
       <Collapse in={open}>
-        <InputCard setOpen={setOpen} listId={listId} type={type} />
+        <InputCard open={open} setOpen={setOpen} listId={listId} type={type} />
       </Collapse>
       <Collapse in={!open}>
         <div className="buttonContainer">
