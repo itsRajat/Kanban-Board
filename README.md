@@ -46,3 +46,4 @@ src -> contains all the relevant files.
 - npm start
 
 Done!
+Hope you like the assignment :)
