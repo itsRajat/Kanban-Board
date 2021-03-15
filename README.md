@@ -23,6 +23,8 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - State of the board is persisted through LocalStorage.
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
 
+Most of the "major" features were built with their own commits so feel free to check that out if needed.
+
 ## Project Architecture 
 ```
 src -> contains all the relevant files.
