@@ -25,26 +25,28 @@ const InputContainer = ({ listId, type }) => {
         <InputCard setOpen={setOpen} listId={listId} type={type} />
       </Collapse>
       <Collapse in={!open}>
-        <Button
-          className={classes.addCard}
-          elevation={0}
-          onClick={() => setOpen(!open)}
-        >
-          <Typography className={classes.buttonText}>
-            {type === 'list' ? 'Add a list' : 'Add a Card'}
-          </Typography>
-        </Button>
-        {type === 'list' ? (
+        <div className="buttonContainer">
           <Button
-            onClick={() => setClear(true)}
-            className={classes.clearButton}
+            className={classes.addCard}
             elevation={0}
+            onClick={() => setOpen(!open)}
           >
-            <Typography className={classes.buttonText}>Clear All</Typography>
+            <Typography className={classes.buttonText}>
+              {type === 'list' ? 'Add a list' : 'Add a Card'}
+            </Typography>
           </Button>
-        ) : (
-          ''
-        )}
+          {type === 'list' ? (
+            <Button
+              onClick={() => setClear(true)}
+              className={classes.clearButton}
+              elevation={0}
+            >
+              <Typography className={classes.buttonText}>Clear All</Typography>
+            </Button>
+          ) : (
+            ''
+          )}
+        </div>
       </Collapse>
     </div>
   );
@@ -53,6 +55,9 @@ const InputContainer = ({ listId, type }) => {
 const useStyle = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(2),
+  },
+  buttonContainer: {
+    display: 'flex',
   },
   addCard: {
     padding: theme.spacing(1, 2, 1, 1),

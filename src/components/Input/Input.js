@@ -45,7 +45,7 @@ const Input = ({ setOpen, listId, type }) => {
 
   return (
     <div onBlur={handleBlur}>
-      <div>
+      <div className="inputContainer">
         <Paper className={classes.titleCard}>
           <InputBase
             onChange={handleTitleChange}
@@ -86,7 +86,7 @@ const Input = ({ setOpen, listId, type }) => {
           className={classes.btnConfirm}
           onClick={() => handleBtnConfirm()}
         >
-          {type === 'list' ? 'Add a list' : 'Add a Card'}
+          {type === 'list' ? 'Add List' : 'Add Card'}
         </Button>
         <IconButton onClick={() => setOpen(false)} className={classes.cancel}>
           <ClearIcon />
@@ -106,6 +106,9 @@ const useStyle = makeStyles((theme) => ({
   descCard: {
     margin: theme.spacing(0, 1, 1, 1),
     paddingBottom: theme.spacing(4),
+  },
+  inputContainer: {
+    margin: theme.spacing(10),
   },
   input: {
     margin: theme.spacing(1),
@@ -129,6 +132,7 @@ const useStyle = makeStyles((theme) => ({
   },
   confirm: {
     margin: theme.spacing(2, 1, 1, 1),
+    display: 'flex',
   },
   cancel: {
     marginLeft: '20px',
