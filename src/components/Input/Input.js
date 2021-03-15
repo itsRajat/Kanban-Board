@@ -44,17 +44,18 @@ const Input = ({ setOpen, listId, type, open }) => {
   };
 
   const handleBlur = (e) => {
-    const currentTarget = e.currentTarget;
-
-    // Check the newly focused element in the next tick of the event loop
-    setTimeout(() => {
-      // Check if the new activeElement is a child of the original container
-      if (!currentTarget.contains(document.activeElement)) {
-        setTitle('');
-        setCardDescription('');
-        setOpen(false);
-      }
-    }, 0);
+    if (!title && !cardDescription) {
+      const currentTarget = e.currentTarget;
+      // Check the newly focused element in the next tick of the event loop
+      setTimeout(() => {
+        // Check if the new activeElement is a child of the original container
+        if (!currentTarget.contains(document.activeElement)) {
+          setTitle('');
+          setCardDescription('');
+          setOpen(false);
+        }
+      }, 0);
+    }
   };
 
   return (
