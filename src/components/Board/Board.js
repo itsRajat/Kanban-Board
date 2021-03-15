@@ -19,16 +19,14 @@ const Board = () => {
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
-              <div className="listContainer">
-                <div className={classes.lists}>
-                  {data.listIds.map((listId, index) => {
-                    const list = data.lists[listId];
-                    return <List list={list} key={listId} index={index} />;
-                  })}
-                  <InputContainer type="list" />
-                </div>
-                {provided.placeholder}
+              <div className={classes.lists}>
+                {data.listIds.map((listId, index) => {
+                  const list = data.lists[listId];
+                  return <List list={list} key={listId} index={index} />;
+                })}
+                <InputContainer type="list" />
               </div>
+              {provided.placeholder}
             </div>
           )}
         </Droppable>

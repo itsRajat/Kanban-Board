@@ -40,6 +40,8 @@ const List = ({ list, index }) => {
 
 const useStyle = makeStyles((theme) => ({
   root: {
+    width: '200px',
+    wordWrap: 'break-word',
     margin: '1rem',
     padding: '20px 20px 10px 20px',
     position: 'relative',
