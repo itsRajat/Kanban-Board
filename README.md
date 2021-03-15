@@ -2,7 +2,7 @@
 
 Kanban Board is a tool where you have lists in front of you consisting of cards. Each list has a title, and a button to add more cards. The cards can be moved from one list to another via a drag and drop mechanism. Similar to the popular application Trello.
 
-Created using React, Material UI, Context API, localStorage, nanoid, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
+Created using React, Material UI, Context API, localStorage, useStyle hook, nanoid, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
 
 # Live Preview
 
@@ -18,10 +18,14 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - The overflow of the screen will increase as you create more cards & lists, so there's no "upperlimit".
 - Drag-N-Drop cards anywhere: inside a single list or between different lists.
 - Drag-N-Drop lists to re-order them horizontally.
-- To collapse the "Add card/list" menu, just click anywhere else on the screen. (onBlur)
+- To collapse the "Add card/list" menu, just click anywhere else on the screen. The menu will not collapse if you already have something written inside the text blocks to prevent loss of work. (Unless the user specifically clicks on the "X" button)
 - To remove a card from a list, simply drop it on an empty part of the screen & it will be removed.
 - State of the board is persisted through LocalStorage.
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
+- Has a nice looking UI with a moving wave animation behind the header logo (look carefully xD)
+- You can use the Keyboard to drag b/w lists & drag cards among a single list. Press Tab to select an item, space to initialize Dnd & arrow keys to move. Press space again to save. This is a part of React DnD Library.
+
+Most of the "major" features were built with their own commits so feel free to check that out if needed.
 
 ## Project Architecture 
 ```
@@ -43,3 +47,4 @@ src -> contains all the relevant files.
 - npm start
 
 Done!
+Hope you like the assignment :)
