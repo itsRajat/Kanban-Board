@@ -2,6 +2,7 @@ import React from 'react';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Draggable } from 'react-beautiful-dnd';
+import Headshake from 'react-reveal/HeadShake';
 
 const Card = ({ card, index }) => {
   const classes = useStyle();
@@ -15,8 +16,12 @@ const Card = ({ card, index }) => {
           {...provided.draggableProps}
         >
           <Paper className={classes.cardContainer}>
-            <div className={classes.cardTitle}>{card.title.toUpperCase()}</div>
-            <div className={classes.cardDesc}>{card.desc}</div>
+            <Headshake>
+              <div className={classes.cardTitle}>
+                {card.title.toUpperCase()}
+              </div>
+              <div className={classes.cardDesc}>{card.desc}</div>
+            </Headshake>
           </Paper>
         </div>
       )}

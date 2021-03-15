@@ -4,6 +4,7 @@ import { dataContext } from '../../contexts/dataContext';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '../List/List';
 import InputContainer from '../Input/InputContainer';
+import Fade from 'react-reveal/Fade';
 
 const Board = () => {
   const { data, onDragEnd } = useContext(dataContext);
@@ -12,24 +13,26 @@ const Board = () => {
   return (
     <div>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="app" type="list" direction="horizontal">
-          {(provided) => (
-            <div
-              className={classes.root}
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              <div className={classes.lists}>
-                {data.listIds.map((listId, index) => {
-                  const list = data.lists[listId];
-                  return <List list={list} key={listId} index={index} />;
-                })}
-                <InputContainer type="list" />
+        <Fade left duration={1200}>
+          <Droppable droppableId="app" type="list" direction="horizontal">
+            {(provided) => (
+              <div
+                className={classes.root}
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
+                <div className={classes.lists}>
+                  {data.listIds.map((listId, index) => {
+                    const list = data.lists[listId];
+                    return <List list={list} key={listId} index={index} />;
+                  })}
+                  <InputContainer type="list" />
+                </div>
+                {provided.placeholder}
               </div>
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
+            )}
+          </Droppable>
+        </Fade>
       </DragDropContext>
     </div>
   );
