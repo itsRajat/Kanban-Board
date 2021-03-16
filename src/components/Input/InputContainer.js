@@ -85,4 +85,4 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export default InputContainer;
+export default React.memo(InputContainer);

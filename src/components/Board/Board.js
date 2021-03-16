@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { dataContext } from '../../contexts/dataContext';
 import { makeStyles } from '@material-ui/core/styles';
+import { RootRef } from '@material-ui/core';
 import List from '../List/List';
 import InputContainer from '../Input/InputContainer';
 import Fade from 'react-reveal/Fade';
@@ -9,11 +10,25 @@ import Fade from 'react-reveal/Fade';
 const Board = () => {
   const { data, onDragEnd } = useContext(dataContext);
   const classes = useStyle();
+  const scrollRef = useRef();
+
+  const scrollToEnd = () => {
+    scrollRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
+  useEffect(() => {}, []);
+
+  useEffect(() => {
+    scrollToEnd();
+  }, [data.listIds.length]);
 
   return (
     <div>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Fade left duration={1200}>
+        <Fade left duration={data.listIds.length > 5 ? 0 : 1000}>
           <Droppable droppableId="app" type="list" direction="horizontal">
             {(provided) => (
               <div
@@ -26,7 +41,9 @@ const Board = () => {
                     const list = data.lists[listId];
                     return <List list={list} key={listId} index={index} />;
                   })}
-                  <InputContainer type="list" />
+                  <RootRef rootRef={scrollRef}>
+                    <InputContainer type="list" scrollRef={scrollRef} />
+                  </RootRef>
                 </div>
                 {provided.placeholder}
               </div>
