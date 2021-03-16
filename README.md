@@ -2,7 +2,7 @@
 
 Kanban Board is a tool where you have lists in front of you consisting of cards. Each list has a title, and a button to add more cards. The cards can be moved from one list to another via a drag and drop mechanism. Similar to the popular application Trello.
 
-Created using React, Material UI, Context API, localStorage, useStyle hook, nanoid, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
+Created using React, Material UI, Context API, localStorage, useStyle, nanoid, react-beautiful-dnd (for a better drag & drop functionality than native) & create-react-app.
 
 # Live Preview
 
@@ -15,6 +15,7 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - Create new cards in lists using 'Add a Card' button.
 - Each card can have a Title & a description. If you don't enter a title, the add button won't work.
 - Each card & list item has a unique ID generated using nanoid, which is much faster than uuid.
+- Animations on page load & card creation/dnd.
 - The overflow of the screen will increase as you create more cards & lists, so there's no "upperlimit".
 - Drag-N-Drop cards anywhere: inside a single list or between different lists.
 - Drag-N-Drop lists to re-order them horizontally.
@@ -24,7 +25,7 @@ Preview the assignment at - https://kanban-x.netlify.app/
 - To clear everything on the board as well as LocalStorage, just click the "Clear All" button.
 - Has a nice looking UI with a moving wave animation behind the header logo (look carefully xD)
 - You can use the Keyboard to drag b/w lists & drag cards among a single list. Press Tab to select an item, space to initialize Dnd & arrow keys to move. Press space again to save. This is a part of React DnD Library.
-- The size is also completely mobile-friendly.
+- The site is also completely mobile-friendly.
 
 Most of the "major" features were built with their own commits so feel free to check that out if needed.
 
